@@ -1,10 +1,16 @@
-import API_KEY from "./apiKey";
+
 
 const sendChatBtn = document.querySelector(".chat-input span");
 const chatInput = document.querySelector(".chat-input textarea" );
 const chatbox  = document.querySelector(".chatbox")
 
 let userMessage;
+
+// Load environment variables
+require('dotenv').config();
+
+// Access the API key
+const API_KEY = process.env.API_KEY;
 
 const createChatLi = (message, className) => {
     const chatLi = document.createElement("li");
