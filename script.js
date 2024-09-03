@@ -1,7 +1,9 @@
+import API_KEY from "./apiKey";
+
 const sendChatBtn = document.querySelector(".chat-input span");
 const chatInput = document.querySelector(".chat-input textarea" );
 const chatbox  = document.querySelector(".chatbox")
-const API_KEY = "AIzaSyAEIiaG6qU2uOtmyAd5b1iQZA6mtrO9BC0"
+
 let userMessage;
 
 const createChatLi = (message, className) => {
