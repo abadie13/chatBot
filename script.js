@@ -1,4 +1,4 @@
-
+//declarations
 
 const sendChatBtn = document.querySelector(".chat-input span");
 const chatInput = document.querySelector(".chat-input textarea" );
@@ -11,7 +11,12 @@ require('dotenv').config();
 
 // Access the API key
 const API_KEY = process.env.API_KEY;
+ 
 
+
+
+
+//Arrow function to create the chat Li for the outgoing message
 const createChatLi = (message, className) => {
     const chatLi = document.createElement("li");
     chatLi.classList.add("chat", className);
@@ -20,7 +25,7 @@ const createChatLi = (message, className) => {
     chatLi.querySelector("p").textContent = message;
     return chatLi;
 }
-
+//Arrow function to generate response
 const generateResponse = (incomingChatLi) =>{
      const API_URL = `https://generativelanguage.googleapis.com/v1/models/gemini-pro:generateContent?key=${API_KEY}`
      const messageElement = incomingChatLi.querySelector("p");
@@ -36,7 +41,7 @@ const generateResponse = (incomingChatLi) =>{
           }] 
         }),
     };
-
+    //API
     fetch(API_URL, requestOptions).then(res => res.json()).then(data => {
         messageElement.textContent = data.candidates[0].content.parts[0].text;
     }).catch((error)=>{
